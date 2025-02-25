@@ -232,11 +232,19 @@ function startGame() {
     alert("Please enter a valid board size between 5 and 10.");
     return;
   }
-
-  gameBoard.clear();
+  // gameBoard.clear();
   const board = RandomSolution(boardSize);
   regions = QueenColor(board, boardSize);
   regions = fillRegions(regions, boardSize);
   generateGrid(boardSize, regions);
   console.log(board);
+
 }
+
+function resetGame(event){
+  gameBoard.clear()
+  const result=document.getElementById("result")
+  result.innerHTML=""
+  generateGrid(boardSize,regions)
+}
+
