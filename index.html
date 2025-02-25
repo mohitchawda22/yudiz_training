@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+
+      const colors = ["#E52020","#FBA518","#F9CB43","#4CAF50","#3498DB","#9B59B6","#34495E","#2ECC71"];
+      const backtonormal=["white"]
+
+      let card=document.createElement('card');
+      let div=document.createElement('div');
+      card.appendChild(div);
+      let heading=document.createElement('h2');
+      let paragraph=document.createElement('p');
+      let btn=document.createElement('button');
+      div.appendChild(heading);
+      div.appendChild(paragraph);
+      div.appendChild(btn);
+      let btn2=document.createElement('button');
+      div.appendChild(btn2);
+
+      document.body.appendChild(card);
+
+      card.style.width="100vw";
+      card.style.height="100vh";
+      heading.textContent="Color Changing Card";
+      heading.style.textAlign="center";
+      heading.style.color="black";
+      heading.style.border="2px solid black";
+      heading.style.borderRadius="10px";
+      heading.style.padding="10px 10px 10px 10px";
+      card.style.marginTop="50px";
+      card.style.width="100vw";
+      card.style.height="100vh";
+      card.style.display="flex";
+      card.style.alignItems="center";
+      card.style.justifyContent="center";
+      div.style.display="flex";
+      div.style.flexDirection="column";
+      // div.style.backgroundColor="#F9CB43";
+      div.style.borderRadius="10px";
+      div.style.padding="100px";
+      div.style.border="5px solid black";
+      paragraph.textContent=`Hello mohit! I am a color changing card.Click the button to change the background color and text color`;
+      paragraph.style.fontFamily="Arial, sans-serif";
+      paragraph.style.fontSize="24px";
+      btn.textContent="Click Me";
+      btn.style.padding="10px 20px";
+      btn.style.backgroundColor="grey";
+      btn.style.color="white";
+      btn.style.display="flex";
+      btn.style.justifyContent="center";
+      btn.style.alignItems="center";
+
+
+      btn2.style.marginTop="20px";
+      btn2.textContent="Change TextColor";
+      btn2.style.padding="10px 20px";
+      btn2.style.backgroundColor="grey";
+      btn2.style.color="#fff";
+      btn2.style.display="flex";
+      btn2.style.justifyContent="center";
+      btn2.style.alignItems="center";
+
+      let flag=0;
+      btn.addEventListener('click',(e)=>{
+          if(flag==0){
+              div.style.background = colors[Math.floor(Math.random()*colors.length)];
+              // div.style.border = colors[Math.floor(Math.random()*colors.length)] +" 5px solid";
+              // heading.style.border=colors[Math.floor(Math.random()*colors.length)] + " 5px solid";
+              // btn.style.background = colors[Math.floor(Math.random()*colors.length)];
+              btn.textContent="Remove Color";
+              flag=1;
+          }
+          else if(flag==1) {
+              div.style.background = backtonormal;
+              // btn.style.background = backtonormal;
+              // btn.style.color="black";
+              btn.textContent="Change Color";
+              flag=0;
+          }
+      })
+
+      btn2.addEventListener('click',(e)=>{
+          if(flag==0){
+          heading.style.color=colors[Math.floor(Math.random()*colors.length)];
+          // btn2.style.background=colors[Math.floor(Math.random()*colors.length)];
+          document.body.style.color=colors[Math.floor(Math.random()*colors.length)];
+          }
+          else if(flag==1) {
+              heading.style.color="black";
+              document.body.style.color="black";
+          }
+      })
+    </script>
+  </body>
+</html>
